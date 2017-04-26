@@ -19,14 +19,14 @@ namespace VendingMachineKata
         [TestMethod]
         public void AcceptCoins()
         {
-            vendingMachine.InsertCoin(new Coin());
+            vendingMachine.InsertCoin(new Coin() { CoinProperties = CoinPropertiesEnum.Nickel });
             Assert.IsTrue(vendingMachine.Coins.Any());
         }
 
         [TestMethod]
         public void RejectCoins()
         {
-            vendingMachine.InsertCoin(new Coin() { IsValid = false });
+            vendingMachine.InsertCoin(new Coin() { CoinProperties = CoinPropertiesEnum.Penny });
             Assert.IsFalse(vendingMachine.Coins.Any());
         }
 
@@ -39,9 +39,17 @@ namespace VendingMachineKata
         [TestMethod]
         public void RejectedCoinsAreReturned()
         {
-            var coin = new Coin() { IsValid = false };
+            var coin = new Coin() { CoinProperties = CoinPropertiesEnum.Penny };
             vendingMachine.InsertCoin(coin);
             Assert.IsTrue(vendingMachine.CoinReturn.Any());
+        }
+
+        [TestMethod]
+        public void NickelsAreAccepted()
+        {
+            var coin = new Coin() { CoinProperties = CoinPropertiesEnum.Nickel };
+            vendingMachine.InsertCoin(coin);
+            Assert.IsTrue(vendingMachine.Coins.Any());
         }
 
 

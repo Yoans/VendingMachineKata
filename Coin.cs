@@ -4,9 +4,8 @@
     {
         public Coin()
         {
-            IsValid = true;
         }
 
-        public bool IsValid { get; internal set; }
+        public CoinPropertiesEnum CoinProperties { get; internal set; }
     }
 }

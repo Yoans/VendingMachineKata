@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System.Linq;
 
 namespace VendingMachineKata
 {
@@ -7,8 +9,12 @@ namespace VendingMachineKata
     public class UnitTest1
     {
         [TestMethod]
-        public void TestMethod1()
+        public void AcceptCoins()
         {
+            var vendingMachine = new VendingMachine();
+            vendingMachine.InsertCoin(new Coin());
+            Assert.IsTrue(vendingMachine.Coins.Any());
+
         }
     }
 }

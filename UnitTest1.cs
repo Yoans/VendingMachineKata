@@ -53,5 +53,22 @@ namespace VendingMachineKata
         }
 
 
+        [TestMethod]
+        public void DimesAreAccepted()
+        {
+            var coin = new Coin() { CoinProperties = CoinPropertiesEnum.Dime };
+            vendingMachine.InsertCoin(coin);
+            Assert.IsTrue(vendingMachine.Coins.Any());
+        }
+
+
+        [TestMethod]
+        public void QuartersAreAccepted()
+        {
+            var coin = new Coin() { CoinProperties = CoinPropertiesEnum.Quarter };
+            vendingMachine.InsertCoin(coin);
+            Assert.IsTrue(vendingMachine.Coins.Any());
+        }
+
     }
 }

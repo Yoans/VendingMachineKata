@@ -35,5 +35,15 @@ namespace VendingMachineKata
         {
             Assert.AreEqual("INSERT COIN", vendingMachine.Display);
         }
+
+        [TestMethod]
+        public void RejectedCoinsAreReturned()
+        {
+            var coin = new Coin() { IsValid = false };
+            vendingMachine.InsertCoin(coin);
+            Assert.IsTrue(vendingMachine.CoinReturn.Any());
+        }
+
+
     }
 }

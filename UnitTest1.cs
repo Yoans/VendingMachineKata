@@ -8,13 +8,26 @@ namespace VendingMachineKata
     [TestClass]
     public class UnitTest1
     {
+        public VendingMachine vendingMachine;
+
+        [TestInitialize]
+        public void Setup()
+        {
+            vendingMachine = new VendingMachine();
+        }
+
         [TestMethod]
         public void AcceptCoins()
         {
-            var vendingMachine = new VendingMachine();
             vendingMachine.InsertCoin(new Coin());
             Assert.IsTrue(vendingMachine.Coins.Any());
+        }
 
+        [TestMethod]
+        public void RejectCoins()
+        {
+            vendingMachine.InsertCoin(new Coin() {IsValid = false});
+            Assert.IsFalse(vendingMachine.Coins.Any());
         }
     }
 }

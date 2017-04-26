@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace VendingMachineKata
 {
-    internal class VendingMachine
+    public class VendingMachine
     {
         public VendingMachine()
         {
@@ -12,9 +12,11 @@ namespace VendingMachineKata
 
         public List<Coin> Coins { get; internal set; }
 
-        internal void InsertCoin(Coin coin)
+        public void InsertCoin(Coin coin)
         {
-            Coins.Add(coin);
+            if (coin.IsValid) {
+                Coins.Add(coin);
+            }
         }
     }
 }

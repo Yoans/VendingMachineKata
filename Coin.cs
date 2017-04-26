@@ -1,9 +1,12 @@
 ﻿namespace VendingMachineKata
 {
-    internal class Coin
+    public class Coin
     {
         public Coin()
         {
+            IsValid = true;
         }
+
+        public bool IsValid { get; internal set; }
     }
 }

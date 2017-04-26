@@ -8,9 +8,11 @@ namespace VendingMachineKata
         public VendingMachine()
         {
             Coins = new List<Coin>();
+            Display = "INSERT COIN";
         }
 
         public List<Coin> Coins { get; internal set; }
+        public string Display { get; internal set; }
 
         public void InsertCoin(Coin coin)
         {

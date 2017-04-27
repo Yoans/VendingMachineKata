@@ -26,6 +26,8 @@ namespace VendingMachineKata
 
             ProductPrices = new Dictionary<ProductEnum, decimal>();
             ProductPrices.Add(ProductEnum.Cola, (decimal) 1.00);
+            ProductPrices.Add(ProductEnum.Chips, (decimal) 0.50);
+            ProductPrices.Add(ProductEnum.Candy, (decimal) 0.65);
 
         }
 

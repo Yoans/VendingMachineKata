@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace VendingMachineKata
 {
@@ -9,19 +10,18 @@ namespace VendingMachineKata
         public List<Coin> CoinReturn { get; internal set; }
         public List<Coin> Coins { get; internal set; }
         public string Display { get; internal set; }
-        public List<CoinPropertiesEnum> ValidCoinProperties { get; private set; }
+        public Dictionary<CoinPropertiesEnum,decimal> CoinValues { get; private set; }
 
         public VendingMachine()
         {
             Coins = new List<Coin>();
             CoinReturn = new List<Coin>();
             Display = "INSERT COIN";
-            ValidCoinProperties = new List<CoinPropertiesEnum>()
-            {
-                CoinPropertiesEnum.Nickel,
-                CoinPropertiesEnum.Dime,
-                CoinPropertiesEnum.Quarter
-            };
+            CoinValues = new Dictionary<CoinPropertiesEnum, decimal>();
+            CoinValues.Add(CoinPropertiesEnum.Nickel, (decimal) 0.05);
+            CoinValues.Add(CoinPropertiesEnum.Dime, (decimal) 0.10);
+            CoinValues.Add(CoinPropertiesEnum.Quarter, (decimal) 0.25);
+            
         }
 
         public void InsertCoin(Coin coin)
@@ -29,15 +29,18 @@ namespace VendingMachineKata
             if (IsValid(coin))
             {
                 Coins.Add(coin);
+                var centsInVendingMaching = Coins.Sum(x => CoinValues[coin.CoinProperties]);
+                Display = "$"+centsInVendingMaching.ToString();
             }
             else {
                 CoinReturn.Add(coin);
             }
         }
+        
 
         private bool IsValid(Coin coin)
         {
-            return ValidCoinProperties.Contains(coin.CoinProperties);
+            return CoinValues.Keys.Contains(coin.CoinProperties);
         }
     }
 }

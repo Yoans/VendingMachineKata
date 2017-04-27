@@ -78,5 +78,12 @@ namespace VendingMachineKata
             Assert.IsTrue(vendingMachine.CoinReturn.Any());
         }
 
+        [TestMethod]
+        public void DisplayNickelValue()
+        {
+            var coin = new Coin() { CoinProperties = CoinPropertiesEnum.Nickel };
+            vendingMachine.InsertCoin(coin);
+            Assert.AreEqual("$0.05", vendingMachine.Display);
+        }
     }
 }

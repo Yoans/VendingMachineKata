@@ -37,13 +37,39 @@ namespace VendingMachineKata
             Assert.AreEqual("PRICE: $0.65", vendingMachine.Display);
         }
 
-        //[TestMethod]
-        //public void SelectProductDispensesCola()
-        //{
-        //    vendingMachine.InsertCoin();
-        //    vendingMachine.SelectProduct(ProductEnum.Cola);
-        //    Assert.AreEqual("PRICE: $1.00", vendingMachine.Display);
-        //}
+        private void InsertCoinsAndSelectCola()
+        {
+            var coin = new Coin() { CoinProperties = CoinPropertiesEnum.Quarter };
+            var coin2 = new Coin() { CoinProperties = CoinPropertiesEnum.Quarter };
+            var coin3 = new Coin() { CoinProperties = CoinPropertiesEnum.Quarter };
+            var coin4 = new Coin() { CoinProperties = CoinPropertiesEnum.Quarter };
+            vendingMachine.InsertCoin(coin);
+            vendingMachine.InsertCoin(coin2);
+            vendingMachine.InsertCoin(coin3);
+            vendingMachine.InsertCoin(coin4);
+            vendingMachine.SelectProduct(ProductEnum.Cola);
+        }
 
+        [TestMethod]
+        public void SelectProductDispensesCola()
+        {
+            InsertCoinsAndSelectCola();
+            Assert.AreEqual(ProductEnum.Cola,vendingMachine.DispensedProduct);
+        }
+
+
+        [TestMethod]
+        public void DispenseProductDisplaysThankYou()
+        {
+            InsertCoinsAndSelectCola();
+            Assert.AreEqual("THANK YOU", vendingMachine.Display);
+        }
+        [TestMethod]
+        public void DispenseProductSetsBalanceToZero()
+        {
+            InsertCoinsAndSelectCola();
+            Assert.AreEqual(0, vendingMachine.SumCoins());
+        }
+        
     }
 }

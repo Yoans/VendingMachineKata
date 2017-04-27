@@ -12,6 +12,8 @@ namespace VendingMachineKata
         public string Display { get; internal set; }
         public Dictionary<CoinPropertiesEnum,decimal> CoinValues { get; private set; }
         public Dictionary<ProductEnum,decimal> ProductPrices { get; private set; }
+        public ProductEnum DispensedProduct { get; internal set; }
+
         const string format = "0.00";
         public VendingMachine()
         {
@@ -33,7 +35,15 @@ namespace VendingMachineKata
 
         public void SelectProduct(ProductEnum product)
         {
-            Display = "PRICE: $" + ProductPrices[product].ToString(format);
+            if (ProductPrices[product] <= SumCoins())
+            {
+                DispensedProduct = product;
+                Display = "THANK YOU";
+            }
+            else
+            {
+                Display = "PRICE: $" + ProductPrices[product].ToString(format);
+            }
         }
 
         public void InsertCoin(Coin coin)

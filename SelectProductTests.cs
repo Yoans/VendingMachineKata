@@ -70,6 +70,14 @@ namespace VendingMachineKata
             InsertCoinsAndSelectCola();
             Assert.AreEqual(0, vendingMachine.SumCoins());
         }
-        
+
+
+        [TestMethod]
+        public void CheckDisplayChangesDisplayAfterProductIsDispensed()
+        {
+            InsertCoinsAndSelectCola();
+            Assert.AreEqual("THANK YOU", vendingMachine.Display);
+            Assert.AreEqual("INSERT COIN", vendingMachine.Display);
+        }
     }
 }

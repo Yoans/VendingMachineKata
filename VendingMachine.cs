@@ -9,7 +9,18 @@ namespace VendingMachineKata
 
         public List<Coin> CoinReturn { get; internal set; }
         public List<Coin> Coins { get; internal set; }
-        public string Display { get; internal set; }
+        private string _display;
+        public string Display {
+            get
+            {
+                var initialValue = _display;
+                if (_display == "THANK YOU") {
+                    _display = "INSERT COIN";
+                }
+                return initialValue;
+            }
+            set { _display = value; }
+        }
         public Dictionary<CoinPropertiesEnum,decimal> CoinValues { get; private set; }
         public Dictionary<ProductEnum,decimal> ProductPrices { get; private set; }
         public ProductEnum DispensedProduct { get; internal set; }

@@ -37,5 +37,13 @@ namespace VendingMachineKata
             Assert.AreEqual("PRICE: $0.65", vendingMachine.Display);
         }
 
+        //[TestMethod]
+        //public void SelectProductDispensesCola()
+        //{
+        //    vendingMachine.InsertCoin();
+        //    vendingMachine.SelectProduct(ProductEnum.Cola);
+        //    Assert.AreEqual("PRICE: $1.00", vendingMachine.Display);
+        //}
+
     }
 }

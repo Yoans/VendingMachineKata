@@ -41,14 +41,19 @@ namespace VendingMachineKata
             if (IsValid(coin))
             {
                 Coins.Add(coin);
-                var centsInVendingMaching = Coins.Sum(x => CoinValues[coin.CoinProperties]);
+                var centsInVendingMaching = SumCoins();
                 Display = "$"+centsInVendingMaching.ToString(format);
             }
             else {
                 CoinReturn.Add(coin);
             }
         }
-        
+
+
+        public decimal SumCoins()
+        {
+            return Coins.Sum(x => CoinValues[x.CoinProperties]);
+        }
 
         private bool IsValid(Coin coin)
         {

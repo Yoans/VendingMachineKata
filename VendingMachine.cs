@@ -30,7 +30,7 @@ namespace VendingMachineKata
             {
                 Coins.Add(coin);
                 var centsInVendingMaching = Coins.Sum(x => CoinValues[coin.CoinProperties]);
-                Display = "$"+centsInVendingMaching.ToString();
+                Display = "$"+centsInVendingMaching.ToString("0.00");
             }
             else {
                 CoinReturn.Add(coin);

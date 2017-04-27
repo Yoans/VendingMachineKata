@@ -85,5 +85,23 @@ namespace VendingMachineKata
             vendingMachine.InsertCoin(coin);
             Assert.AreEqual("$0.05", vendingMachine.Display);
         }
+
+
+        [TestMethod]
+        public void DisplayDimeValue()
+        {
+            var coin = new Coin() { CoinProperties = CoinPropertiesEnum.Dime };
+            vendingMachine.InsertCoin(coin);
+            Assert.AreEqual("$0.10", vendingMachine.Display);
+        }
+
+
+        [TestMethod]
+        public void DisplayQuarterValue()
+        {
+            var coin = new Coin() { CoinProperties = CoinPropertiesEnum.Quarter };
+            vendingMachine.InsertCoin(coin);
+            Assert.AreEqual("$0.25", vendingMachine.Display);
+        }
     }
 }

@@ -50,9 +50,11 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="ProductEnum.cs" />
+    <Compile Include="SelectProductTests.cs" />
     <Compile Include="Coin.cs" />
     <Compile Include="CoinPropertiesEnum.cs" />
-    <Compile Include="UnitTest1.cs" />
+    <Compile Include="AcceptCoinTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="VendingMachine.cs" />
   </ItemGroup>

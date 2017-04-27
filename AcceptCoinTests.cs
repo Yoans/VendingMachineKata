@@ -6,7 +6,7 @@ using System.Linq;
 namespace VendingMachineKata
 {
     [TestClass]
-    public class UnitTest1
+    public class AcceptCoinTests
     {
         public VendingMachine vendingMachine;
 

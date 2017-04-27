@@ -1,6 +1,5 @@
 C:\Code\VendingMachineKata\bin\Debug\VendingMachineKata.dll
 C:\Code\VendingMachineKata\bin\Debug\VendingMachineKata.pdb
 C:\Code\VendingMachineKata\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll
-C:\Code\VendingMachineKata\obj\Debug\VendingMachineKata.csprojResolveAssemblyReference.cache
 C:\Code\VendingMachineKata\obj\Debug\VendingMachineKata.dll
 C:\Code\VendingMachineKata\obj\Debug\VendingMachineKata.pdb

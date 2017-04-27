@@ -79,5 +79,13 @@ namespace VendingMachineKata
             Assert.AreEqual("THANK YOU", vendingMachine.Display);
             Assert.AreEqual("INSERT COIN", vendingMachine.Display);
         }
+
+        [TestMethod]
+        public void CheckDisplayChangesWhenNotEnoughMoneyIsInserted()
+        {
+            vendingMachine.SelectProduct(ProductEnum.Candy);
+            Assert.AreEqual("PRICE: $0.65", vendingMachine.Display);
+            Assert.AreEqual("INSERT COIN", vendingMachine.Display);
+        }
     }
 }

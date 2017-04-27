@@ -17,6 +17,10 @@ namespace VendingMachineKata
                 if (_display == "THANK YOU") {
                     _display = "INSERT COIN";
                 }
+                else if (_display.StartsWith("PRICE:"))
+                {
+                    _display = "INSERT COIN";
+                }
                 return initialValue;
             }
             set { _display = value; }

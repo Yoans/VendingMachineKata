@@ -39,6 +39,7 @@ namespace VendingMachineKata
             {
                 DispensedProduct = product;
                 Display = "THANK YOU";
+                Coins = new List<Coin>();
             }
             else
             {

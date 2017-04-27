@@ -19,7 +19,13 @@ namespace VendingMachineKata
                 }
                 else if (_display.StartsWith("PRICE:"))
                 {
-                    _display = "INSERT COIN";
+                    if (SumCoins() > 0)
+                    {
+                        SetDisplayToSumOfCoins();
+                    }
+                    else {
+                        _display = "INSERT COIN";
+                    }
                 }
                 return initialValue;
             }
@@ -67,12 +73,17 @@ namespace VendingMachineKata
             if (IsValid(coin))
             {
                 Coins.Add(coin);
-                var centsInVendingMaching = SumCoins();
-                Display = "$"+centsInVendingMaching.ToString(format);
+                SetDisplayToSumOfCoins();
             }
             else {
                 CoinReturn.Add(coin);
             }
+        }
+
+        public void SetDisplayToSumOfCoins()
+        {
+            var centsInVendingMaching = SumCoins();
+            Display = "$" + centsInVendingMaching.ToString(format);
         }
 
 

@@ -70,5 +70,13 @@ namespace VendingMachineKata
             Assert.IsTrue(vendingMachine.Coins.Any());
         }
 
+        [TestMethod]
+        public void PenniesAreRejected()
+        {
+            var coin = new Coin() { CoinProperties = CoinPropertiesEnum.Penny };
+            vendingMachine.InsertCoin(coin);
+            Assert.IsTrue(vendingMachine.CoinReturn.Any());
+        }
+
     }
 }
